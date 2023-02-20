@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <div class="container">
+        <h3>Подробнее о сервесе {{ service.service }}</h3>
+    </div>
+    <div class="row">
+        <div>
+            <div class="container card border-primary mb-4" align="center" style="width: 100rem;">
+                <h5 class="card-title">{{ service.service }}</h5>
+                <p class="card-text">{{ service.description }}</p>
+            </div>
+
+        </div>
+    </div>
+    <a href="{% url 'services' %}" class="btn btn-primary">
+        Назад
+    </a>
+</div>
+
+{% endblock %}

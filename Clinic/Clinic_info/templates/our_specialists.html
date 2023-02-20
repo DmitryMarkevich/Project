@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <h1>Наши специалисты:</h1>
+    <div class="row">
+        {% for specialist in specialists %}
+        <div class="col-md-4">
+            <div class="brand_image">
+
+                <img class="brand_img" class="card-img-top" src="{% static specialist.image %}"
+                     alt="фото сотрудника">
+                <div class="card-body">
+                    <h5 class="card-title">{{ specialist.surname }} {{ specialist.name }} {{ specialist.patronymic}}</h5>
+                    <p class="card-text">{{ specialist.profession }}</p>
+                    <a href="{% url 'detailed_by_specialist' specialist.pk %}" class="btn btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

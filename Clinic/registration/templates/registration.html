@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    {% if registration == 0 %}
+    <div class="container">
+        <h3>Пожалуйста заполните следующие поля:</h3>
+    </div>
+
+        <form action="/registration/" method="post">
+            {% csrf_token %}
+            <div class="container card mb-4" align="center" style="width: 30rem;">
+                <label>Введите ваше имя</label>
+                {{ form.name }}
+            </div>
+            <div class="container card mb-4" align="center" style="width: 30rem;">
+                <label>Введите свой номер телефона</label>
+                {{ form.telephone }}
+            </div>
+            <div class="container card mb-4" align="center" style="width: 30rem;">
+                <label>Введите свой email</label>
+                {{ form.email }}
+            </div>
+            <div class="container card mb-4" align="center" style="width: 30rem;">
+                 <label>Выберите категорию</label>
+                {{ form.service }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Записаться</button>
+
+        </form>
+
+        {% endif %}
+
+
+    {% if registration == 1 %}
+    <div class="container">
+        <h3>С Вами свяжется первый освободившийся администратор</h3>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <div id="myCarousel" class="carousel slide bg-inverse w-100 ml-auto mr-auto" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+
+            <div class="carousel-item active">
+                <img class="d-block w-100" height="650px"
+                     src="https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074__340.jpg"
+                     alt="Первый слайд">
+                <div class="carousel-caption">
+                    <h3>Наши преимущества:</h3>
+                    <h3>Быстрота и точность диагноза</h3>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img class="d-block w-100" height="650px"
+                     src="https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733__340.jpg"
+                     alt="Второй слайд">
+                <div class="carousel-caption">
+                    <h3>Наши преимущества:</h3>
+                    <h3>Эффективность лечения</h3>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img class="d-block w-100" height="650px"
+                     src="https://cdn.pixabay.com/photo/2018/03/27/17/25/cat-3266673__340.jpg"
+                     alt="Третий слайд">
+                <div class="carousel-caption">
+                    <h3>Наши преимущества:</h3>
+                    <h3>Опытный персонал</h3>
+                </div>
+            </div>
+
+
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Предыдущий</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Следующий</span>
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</div>
+
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-4">
+            <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header"><a href="{% url 'detailed_services' service.pk %}" class="btn-primary">
+                    <h5>{{ service.service }}</h5>
+                </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.pk }}</h5>
+                    <p class="card-text">{{ service.description| slice:":105" }}...</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <h3>Как нас найти? Мы расположены в центре Могилева, нас нельзя не заметить.</h3>
+    <img class="brand_img" src="\static\images\images_88.PNG" alt="фото карты">
+    <main class="main" style="min-height: 461px;">
+        <div class="main-top">
+
+            <div class="container">
+
+                <h3 class="main-top__title title">Контакты</h3>
+
+            </div>
+        </div>
+
+        <!-- SERVICES-MENU
+        ====================================================================== -->
+        <div class="contacts">
+            <div class="container">
+                <div class="contacts-txt text-editor">
+                    </p>
+                    <p>Прием у любого из наших специалистов возможен по предварительной записи</p></div>
+
+                <ul class="contacts-list">
+                    <li>
+                        Адрес: г. Могилев ул. Первомайская, д. 31
+                    </li>
+
+                    <li>
+                        Телефоны:
+                        <a href="{% url 'contacts' %}">+ 375 (222) 76-76-76</a>
+                        <a href="{% url 'contacts' %}">+375 (44) 702-33-33</a>
+                        <a href="{% url 'contacts' %}">+375 (29) 702-33-44</a>
+
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="map-info__item-content">
+            <div class="map-info__item-title">Время работы</div>
+
+            <ul class="map-info__item-list">
+                <li>Пн-Пт: с 8:00 до 17:00</li>
+                <li> Сб: с 9:00 до 17:00</li>
+                <li> ВС: с 9:00 до 17:00</li>
+
+            </ul>
+
+            <a href="/registration/" class="map-info__item-link popup-link">Записаться на прием</a>
+        </div>
+
+
+        <div class="map-info__item-content">
+            <div class="map-info__item-title">Адрес</div>
+
+            <ul class="map-info__item-list">
+                <li>г. Могилев</li>
+                <li>ул. Первомайская, д. 31</li>
+            </ul>
+
+            <!--            <a href="#map" class="map-info__item-link map-info__watchmap goto">Смотреть на карте</a>-->
+        </div>
+
+
+    </main>
+</div>
+
+{% endblock %}

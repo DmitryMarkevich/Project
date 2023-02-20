@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+
+    <div class="container">
+    </div>
+    <div class="row">
+        <div>
+            <h3>У вас нет доступа к данной странице!</h3>
+        </div>
+    </div>
+    <div>
+        <a href="{% url 'clinic' %}" class="btn btn-primary">
+            На главную
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

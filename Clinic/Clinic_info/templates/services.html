@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+    <div class="container">
+        <h3>Наши сервисы:</h3>
+    </div>
+    <div class="row">
+        {% for service in all_services %}
+        <div>
+
+            <div class="container card border-primary mb-4" align="center" style="width: 100rem;">
+                <h5 class="card-title">{{ service.service }}</h5>
+                <p class="card-text">{{ service.description| truncatewords:150 }}</p>
+                <div>
+                    <a href="{% url 'detailed_services' service.pk %}" class="btn btn-primary">
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'clinic' %}" class="btn btn-primary">
+        Назад
+    </a>
+</div>
+
+{% endblock %}

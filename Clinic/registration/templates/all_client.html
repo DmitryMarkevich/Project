@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container card border-primary mb-3" align="center" style="width: 100rem;">
+
+    <div class="container">
+        <h3>Клиенты записанные по онлайн-записи:</h3>
+
+        <p><a href="{% url 'get_registrants' %}" class="edit-button">Весь список</a></p>
+        <p><a href="{% url 'registrants_detail_day' %}" class="edit-button">За последний день</a></p>
+        <p><a href="{% url 'registrants_detail_month' %}" class="edit-button">За последний месяц</a></p>
+
+    </div>
+    <div class="row">
+        {% for client in all_client %}
+        <div>
+            <div class="container card border-primary mb-4" align="center" style="width: 100rem;">
+                <h5 class="card-title">{{ client.name }}</h5>
+                <p class="card-text">
+                    Телефон: {{ client.telephone }};
+                    Email: {{ client.email }};
+                    Выбрана услуга: {{ client.service }};
+                    Дата записи: {{ client.created_on }};</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'clinic' %}" class="btn btn-primary">
+            На главную
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}
